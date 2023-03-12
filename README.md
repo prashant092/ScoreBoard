@@ -2,7 +2,8 @@ ScoreBoard Application
 
 This is a ScoreBoard application built with Java 
 that allows users to start, update, finish, and get in-progress games.
-
+For Dependency management we are using maven, so for running all the testcases please use mvn clean install .
+from your IDE.
 
 Usage
 To use the ScoreBoard application, simply create an instance of the FootBallScoreboard class and call its methods. Here's an example:
