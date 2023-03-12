@@ -1,4 +1,4 @@
-import Model.Game;
+import model.Game;
 import exception.BusinessException;
 import org.junit.Before;
 import org.junit.Test;

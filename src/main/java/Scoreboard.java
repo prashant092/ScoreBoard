@@ -1,7 +1,6 @@
-import Model.Game;
+import model.Game;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface Scoreboard {
 

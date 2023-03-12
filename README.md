@@ -22,7 +22,11 @@ public class Application {
 
 }
 
-Note
+For future Extension : In the current scenario we have Scoreboard interface and Implemented only for FootballScoreboard.
+In future if we want to extend for Other ScoreBoards in future we can do that by implementing this Interface. 
+Common methods can come in our Interface and concert can be in the implemented class.
+
+Note: 
 This application was built using TDD approach and the code has been written
 with the assumption that it will be consumed by other applications, 
 hence a dummy main method has been added just to showcase the usage of the application.
