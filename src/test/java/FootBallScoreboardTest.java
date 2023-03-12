@@ -81,15 +81,27 @@ public class FootBallScoreboardTest {
 
     @Test
     public void testGetGamesInProgressWithMultipleInProgressGames() {
-        Game game1 = scoreboard.startNewGame("Home1", "Away1");
-        scoreboard.updateScore(game1, 1, 0);
+        Game game1 = scoreboard.startNewGame("Mexico", "Canada");
+        scoreboard.updateScore(game1, 0, 5);
 
-        Game game2 = scoreboard.startNewGame("Home2", "Away2");
-        scoreboard.updateScore(game2, 1, 0);
+        Game game2 = scoreboard.startNewGame("Spain", "Brazil");
+        scoreboard.updateScore(game2, 10, 2);
+
+        Game game3 = scoreboard.startNewGame("Germany", "France");
+        scoreboard.updateScore(game3, 2, 2);
+
+        Game game4 = scoreboard.startNewGame("Uruguay", "Italy");
+        scoreboard.updateScore(game4, 6, 6);
+
+        Game game5 = scoreboard.startNewGame("Argentina", "Australia");
+        scoreboard.updateScore(game5, 3, 1);
 
         List<Game> gamesInProgress = scoreboard.getGamesInProgress();
-        assertEquals(2, gamesInProgress.size());
-        assertTrue(gamesInProgress.contains(game1));
-        assertTrue(gamesInProgress.contains(game2));
+        assertEquals(5, gamesInProgress.size());
+        assertEquals(game4, gamesInProgress.get(0));
+        assertEquals(game2, gamesInProgress.get(1));
+        assertEquals(game1, gamesInProgress.get(2));
+        assertEquals(game5, gamesInProgress.get(3));
+        assertEquals(game3, gamesInProgress.get(4));
     }
 }

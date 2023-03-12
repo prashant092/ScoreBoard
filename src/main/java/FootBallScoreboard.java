@@ -1,26 +1,21 @@
 import model.Game;
 import exception.BusinessException;
 
-import java.util.PriorityQueue;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 import java.util.stream.Collectors;
 
 
 public class FootBallScoreboard implements Scoreboard {
 
-    private final PriorityQueue<Game> games;
+    private final List<Game> games;
 
     public FootBallScoreboard() {
-        games = new PriorityQueue<>(
-                Comparator.comparing(Game::getTotalScore).reversed()
-                        .thenComparing(Game::getStartTime).reversed());
+        games = new ArrayList<>();
     }
 
     public Game startNewGame(String homeTeam, String awayTeam) {
         Game game = new Game(homeTeam, awayTeam);
-        this.games.add(game);
+        games.add(game);
         return game;
     }
 
@@ -36,12 +31,14 @@ public class FootBallScoreboard implements Scoreboard {
             throw new BusinessException("Please try with valid game data");
         }
         game.finish();
-        this.games.remove(game);
+        games.remove(game);
     }
 
     public List<Game> getGamesInProgress() {
         return games.stream()
                 .filter(Game::isInProgress)
+                .sorted(Comparator.comparing(Game::getTotalScore, Comparator.reverseOrder())
+                        .thenComparing(Game::getStartTime, Comparator.reverseOrder()))
                 .collect(Collectors.toList());
     }
 }

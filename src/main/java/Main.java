@@ -11,6 +11,8 @@ public class Main {
         final String team4="Away";
         final int game1Team1Score=1;
         final int game1Team2Score=0;
+        final int game2Team1Score=5;
+        final int game2Team2Score=6;
         // create a new FootBallScoreboard instance
         Scoreboard scoreboard = new FootBallScoreboard();
 
@@ -19,14 +21,10 @@ public class Main {
 
         // start a new game
         Game game2 = scoreboard.startNewGame(team3, team4);
-
         // update the score of the first game
         scoreboard.updateScore(game1, game1Team1Score, game1Team2Score);
+        scoreboard.updateScore(game2, 10, 2);
 
-        // finish the second game
-        scoreboard.finishGame(game2);
-
-        // get all the games in progress
         List<Game> gamesInProgress = scoreboard.getGamesInProgress();
 
         // print the games in progress
